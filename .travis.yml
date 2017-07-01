@@ -4,3 +4,5 @@ install: true
 script:
   - echo $TRAVIS_BRANCH
   - env
+  - SONAR_BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then echo "$TRAVIS_BRANCH"; else echo "pr-$TRAVIS_PULL_REQUEST_SHA"; fi)
+  - echo ">>>>>>>>>>>>>>> SONAR_BRANCH is $SONAR_BRANCH <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
